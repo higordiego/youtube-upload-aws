@@ -1,4 +1,4 @@
-import { awsUploadImage, searchImage } from './upload-aws';
+import { awsUploadImage, searchImage, removeImageAws } from './upload-aws';
 
 const isMagic = async (image, key) => {
     try {
@@ -8,9 +8,12 @@ const isMagic = async (image, key) => {
     } catch (err) {
         Promise.reject(err)
     } 
-
 }
 
-isMagic('foto.jpeg', 'foto.jpeg')
+removeImageAws("foto.jpeg")
     .then(response => console.log(response))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
+
+// isMagic('foto.jpeg', 'foto.jpeg')
+//     .then(response => console.log(response))
+//     .catch(err => console.log(err))

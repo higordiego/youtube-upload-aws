@@ -31,6 +31,11 @@ const awsUploadImage = (image, key) => s3.upload({
     ContentEncoding: 'base64'
 }).promise()
 
-module.exports = { awsUploadImage, searchImage }
+const removeImageAws = key => s3.deleteObjects({
+    Bucket: "higordiego",
+    Delete: { Objects: [{Key: key}] }
+}).promise()
+
+module.exports = { awsUploadImage, searchImage, removeImageAws }
 
 
